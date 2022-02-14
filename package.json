@@ -20,7 +20,7 @@
     "socket.io": "^2.3.0"
   },
   "engines": {
-    "node": "^10.16",
+    "node": "^16.14",
     "yarn": "^1.19"
   },
   "devDependencies": {
