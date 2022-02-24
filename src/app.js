@@ -3,6 +3,7 @@ const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
 const Game = require('./classes/game.js');
+const path=require('path');
 
 const app = express();
 const server = http.createServer(app);
@@ -11,6 +12,12 @@ const io = socketio(server);
 const PORT = process.env.PORT || 3000;
 
 app.use('/', express.static(__dirname + '/client'));
+app.use( express.static(__dirname + '/reactclient/build'))
+
+app.get('/v2', (req,res) => {
+  console.log('hit');
+  res.sendFile(path.join(__dirname, '/reactclient/build/index.html'));
+});
 
 let rooms = [];
 
